@@ -1,15 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+  <v-card>
+    <v-card-title>
+      Acerca de esta tienda
+    </v-card-title>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+    <v-card-text>
+      <p>Esta es una tienda online qu te permite comporar porducto de la mas alta calidad tecnoligica</p>
+      <p>Si necesitas ayuda puedes contactarnos en:</p>
+      <p>pruebas@correo.com</p>
+    </v-card-text>
+  </v-card>
+</template>
