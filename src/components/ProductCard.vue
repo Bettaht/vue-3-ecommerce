@@ -15,7 +15,12 @@ export default {
     methods:{
         onAddProduct() {
             const cartStore = useCartStore();
-            cartStore.onAddProduct(this.product.id)
+            cartStore.onAddProduct(this.product)
+        }
+    },
+    computed: {
+        productImageUrl(){
+            return this.product.image ?? 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
         }
     }
 }
@@ -25,7 +30,7 @@ export default {
     <!-- se tiene que poner los 2 puntos ya que si no lo interpreta de forma literal JS -->
     <v-card >
         <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            :src="productImageUrl"
             height="200px"
             cover/>
             

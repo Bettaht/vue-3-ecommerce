@@ -1,67 +1,56 @@
 <script lang="ts">
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '@/stores/cart';
+import { mapState } from 'pinia';
+import ShoppingCartItem from './ShoppingCartItem.vue'
+
 export default{
-    methods:{
-        incrementQuantity(productId: number){
-            this.cartStore.increment(productId)
-        },
-        decrementQuantity(productId: number){
-            this.cartStore.decrement(productId)
-        },
-        deleteProduct(productId: number){
-            this.cartStore.deleteProduct(productId);
-        }
+    components: {
+        ShoppingCartItem
     },
-    computed:{//para mostrar los detalles desde el stock
-        cartStore(){
-            return useCartStore();
-        },
-        details(){
-        return this.cartStore.details;
-    }
+    computed:{//para mostrar los detalles desde el stock usando pinia
+        ...mapState(useCartStore, ['details'])
    }
-   
 }
 </script>
 
 <template>
-    <v-card class="mt-4">
-        <v-card-text>
-            <v-card-title>
-                Productos agregados carrito
-            </v-card-title>
+    <v-card>
+        <v-card-title>
+            Productos agregados carrito
+        </v-card-title>
 
-            <v-list v-if="details.length > 0">
-                <v-list-item 
-                v-for="detail in details" 
-                :key="detail.productId">
-                    <v-list-title>
-                        Product {{ detail.productId }}
-                        <v-btn 
-                        class="ml-2"
-                        size="x-small" 
-                        @click="decrementQuantity(detail.productId)" 
-                        icon="mdi-plus"/>
+        <v-cart-text>
 
-                        (Qty: {{detail.quantity}})
-
-                        <v-btn 
-                        size="x-small" 
-                        @click="incrementQuantity(detail.productId)" 
-                        icon="mdi-minus"/>
-
-                        <v-btn 
-                        class="ml-2" 
-                        size="x-small" 
-                        @click="deleteProduct(detail.productId)" 
-                        icon="mdi-delete"/>
-                    </v-list-title>
-                </v-list-item>
-            </v-list>
+            <v-table v-if="details.length > 0">
+                <thead>
+                    <tr>
+                        <th class="text-left">
+                            Producto
+                        </th>
+                        <th class="text-center">
+                            Cantidad
+                        </th>
+                        <th class="text-left">
+                            Precio
+                        </th>
+                        <th>
+                            SubTotal
+                        </th>
+                        <th>
+                            <span class="d-sr-only">Eliminar</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ShoppingCartItem 
+                    v-for="detail in details" 
+                    :key="detail.product.id"
+                    :detail="detail"/>
+                </tbody>
+            </v-table>
             <p v-else>Aun no has agregado items a tu carrito de compras.
-                Haz <RouterLink to="/">click aqui</RouterLink> para ver los pruductos disponibles.
+            Haz <RouterLink to="/">click aqui</RouterLink> para ver los pruductos disponibles.
             </p>
-        </v-card-text>
+        </v-cart-text>
     </v-card>   
-
 </template>
