@@ -1,6 +1,7 @@
 <script lang="ts"> 
 import type { PropType } from 'vue';
 import type { Product } from '../model/types'
+import { useCartStore } from '../stores/cart';
 export default {
     props: {
         product: {
@@ -9,12 +10,12 @@ export default {
         }
     },
 
-    emits: ['addProduct'],
+
 
     methods:{
         onAddProduct() {
-            //console.log('Agregando producto ' + this.product.id);
-            this.$emit('addProduct');//que evento vamos a emitir para que el padre lo escuche
+            const cartStore = useCartStore();
+            cartStore.onAddProduct(this.product.id)
         }
     }
 }

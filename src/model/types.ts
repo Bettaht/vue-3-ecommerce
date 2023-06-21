@@ -8,3 +8,8 @@ export interface Cartdetail {
     productId: number;
     quantity: number;
 }
+
+export interface Category {
+    id: number;
+    name: string;
+}
