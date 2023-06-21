@@ -8,8 +8,8 @@ import { createPinia } from 'pinia'
 import router from './router'
 
 import App from './App.vue' //se importa el archivo para luego se declara el uso ↓↓↓↓↓ app.use
-
-
+//icons
+import '@mdi/font/css/materialdesignicons.css'
 
 // Vuetify instancia
 import 'vuetify/styles'

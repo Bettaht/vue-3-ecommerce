@@ -30,5 +30,5 @@ export default{
     <button @click="decrease()">Disminuir contador</button>
 
     <p v-if="count <= 10">Vamos tu puedes!</p>
-    <p v-else="">Ya te falta muy poco...</p>
+    <!-- <p v-else="">Ya te falta muy poco...</p> -->
 </template>
