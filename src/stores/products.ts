@@ -1,12 +1,13 @@
 import { defineStore } from "pinia";
 import type { Product } from '../model/types';
-import productsData from '../data/products.json'
+
 
 export const useProductsStore = defineStore('products', {
     state: () => ({ 
       order: 'price' as string,
         categoryId: null as number | null,
-        _products: productsData as Product[] //tipo de dato del valor que se esta asignando
+        _products: [] as Product[], //tipo de dato del valor que se esta asignando
+        loading:true
      }),
     getters: {
       products(state) {
@@ -50,6 +51,14 @@ export const useProductsStore = defineStore('products', {
         },
         orderByNameDesc(){
           this.order = 'nameDesc';
+        },
+        fetchProducts(){//solicitar mediante un get a una URL/API/WebServe 
+          fetch('/data/products.json')
+          .then(response => response.json())
+          .then((data) => {
+            this._products = data;
+            this.loading = false;
+          })
         }
     },
   })

@@ -17,6 +17,9 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+//vietify labs ---- que aun estan en desarrollo
+
+
 const vuetify = createVuetify({
   components,
   directives,
