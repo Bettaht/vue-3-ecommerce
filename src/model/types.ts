@@ -2,7 +2,8 @@ export interface Product {
     name: string;
     price: number;
     id: number;
-    image: string
+    image: string;
+    categoryId: number;
 }
 
 export interface Cartdetail {
@@ -13,4 +14,5 @@ export interface Cartdetail {
 export interface Category {
     id: number;
     name: string;
+    description: string;
 }
