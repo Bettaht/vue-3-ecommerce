@@ -1,17 +1,10 @@
 import type { Category } from "@/model/types";
 import { defineStore } from "pinia";
+import categoriesData from '../data/categories.json'
 
 export const useCategoriesStore = defineStore('categories', {
     state: () => ({ 
-        categories: [{
-            id: 1,
-            name: 'Oficina',
-            description:'Productos para tu oficina'
-        },{
-            id: 2,
-            name: 'Computadora',
-            description:'Productos para tu setup'
-        }] as Category[] //tipo de dato del valor que se esta asignando
+        categories: categoriesData as Category[] //tipo de dato del valor que se esta asignando
      }),
     getters: {
 
