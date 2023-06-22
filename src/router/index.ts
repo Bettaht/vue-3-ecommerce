@@ -7,7 +7,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView//que tiene que mostrar
+      component: () => import('../views/HomeView.vue') //que tiene que mostrar
+    },
+    {
+      path: '/categories/:categoryId',
+      name: 'category',
+      component: () => import('../views/HomeView.vue')
     },
     {
       path: '/cart',

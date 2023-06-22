@@ -22,7 +22,7 @@
         </v-avatar>
 
         <RouterLink to="/" custom v-slot="{navigate}">
-          <v-btn prepend-icon="mdi-home-variant" variant="text" @click="navigate" :active="$route.name === 'home'">Home</v-btn>
+          <v-btn prepend-icon="mdi-home-variant" variant="text" @click="navigate" :active="$route.name === 'home' || $route.name === 'category'">Home</v-btn>
         </RouterLink>
         
         <RouterLink to="/cart" custom v-slot="{navigate}">
