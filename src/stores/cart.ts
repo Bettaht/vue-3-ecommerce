@@ -25,9 +25,9 @@ export const useCartStore = defineStore('cart', {
       let message = 'Hola, quiero realizar la siguiente compra:\n\n '
 
       state.details.forEach(d => {
-        message += `Producto: ${d.product.name}\m`;
-        message += `Cantidad: ${d.quantity}\m`;
-        message += `SubTotal: $${d.quantity * d.product.price}\m`;
+        message += `Producto: ${d.product.name}\n`;
+        message += `Cantidad: ${d.quantity}\n`;
+        message += `SubTotal: $${d.quantity * d.product.price}\n`;
         message += `--------------------\n`;
       });
 
