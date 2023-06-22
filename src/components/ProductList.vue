@@ -1,7 +1,7 @@
 <script lang="ts"> 
 import { mapState } from 'pinia';
 import ProducCard from './ProductCard.vue'
-import { useProductsStore } from '../stores/proudcts'
+import { useProductsStore } from '../stores/products'
 
 export default {
     components:{
@@ -21,4 +21,4 @@ export default {
         <ProducCard  :product = "p"/>
         </v-col>
     </v-row>
-</template>
+</template>../stores/products

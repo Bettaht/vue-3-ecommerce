@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), //guardar un historial de las rutas que se han ido visitando que is el usuario preciona "BACk" se devolvera a la ruta donde antes se encontraba
