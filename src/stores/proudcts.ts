@@ -3,6 +3,7 @@ import type { Product } from '../model/types';
 
 export const useProductsStore = defineStore('products', {
     state: () => ({ 
+      order: '' as string,
         categoryId: null as number | null,
         _products: [
             {name: 'Silla', price: 56, id: 5, categoryId: 1, image: '/products/silla.jpeg'},
@@ -15,16 +16,34 @@ export const useProductsStore = defineStore('products', {
      }),
     getters: {
       products(state) {
-        if (!state.categoryId) {
-            return state._products
+        let products = null;
+        //filtra
+        if (state.categoryId) {
+          products = state._products.filter(p => p.categoryId === state.categoryId);
+        }else{
+          products = state._products
         }
-        return state._products.filter(p => p.categoryId === state.categoryId);
+        //ordena
+        if (state.order === '') {
+          return products;
+        }
+        if (state.order === 'price') {
+          return products.sort((a,b) => a.price - b.price);
+        }
+        if (state.order === 'name') {
+          return products.sort((a,b) => a.name.localeCompare(b.name));//asi se ordena por nombre
+        }
       }
-      
     },
     actions: {
         selectCategory(categoryId: number){
             this.categoryId = categoryId
+        },
+        orderByPrice(){
+          this.order = 'price';
+        },
+        orderByName(){
+          this.order = 'name';
         }
     },
   })
