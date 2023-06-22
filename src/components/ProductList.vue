@@ -18,7 +18,7 @@ export default {
         <v-progress-circular v-if="loading" indeterminate :size="68"/>
     </div>
     <v-row v-else>
-        <v-col v-for="p in products" :key="p.id" cols = "4">
+        <v-col v-for="p in products" :key="p.id" cols = "12" sm="4" md="4" lg="3">
         <ProducCard  :product = "p"/>
         </v-col>
     </v-row>

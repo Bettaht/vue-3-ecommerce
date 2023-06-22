@@ -22,18 +22,24 @@
         </v-avatar>
 
         <RouterLink to="/" custom v-slot="{navigate}">
-          <v-btn prepend-icon="mdi-home-variant" variant="text" @click="navigate" :active="$route.name === 'home' || $route.name === 'category'">Home</v-btn>
+          <v-btn variant="text" @click="navigate" :active="$route.name === 'home' || $route.name === 'category'">
+            <v-icon class="mr-0 ms-2" icon="mdi-home-variant"/>
+            <span class="d-none d-sm-flex">Home</span></v-btn>
         </RouterLink>
         
         <RouterLink to="/cart" custom v-slot="{navigate}">
           <v-badge :content = 'itemsCount' :model-value="itemsCount > 0" color="orange-lighten-2">
-            <v-btn prepend-icon="mdi-cart" variant="text" @click="navigate" :active="$route.name === 'cart'">Cart</v-btn>
+            <v-btn  variant="text" @click="navigate" :active="$route.name === 'cart'">
+              <v-icon class="mr-0 ms-2" icon="mdi-cart"/>
+              <span class="d-none d-sm-flex">Cart</span></v-btn>
           </v-badge>
           
         </RouterLink>
 
         <RouterLink to="/about" custom v-slot="{navigate}">
-          <v-btn prepend-icon="mdi-information" variant="text" @click="navigate" :active="$route.name === 'about'">About</v-btn>
+          <v-btn variant="text" @click="navigate" :active="$route.name === 'about'">
+            <v-icon class="mr-0 ms-2" icon="mdi-information"/>
+            <span class="d-none d-sm-flex">About</span></v-btn>
         </RouterLink>
 
         <v-spacer></v-spacer>
